@@ -80,7 +80,7 @@ graph TD
 ## 4. Setup Instructions
 
 ### Prerequisites
-- Python 3.11+
+- Python 3.11 (Preferable)
 - [Ollama](https://ollama.com/download) installed
 
 ### Steps
