@@ -108,7 +108,6 @@ cp .env.example .env           # Windows: copy .env.example .env
 ollama pull llama3.2:3b
 
 # 6. Seed the database with the KB documents
-# Eventhough there is existing .db file in the current folder, seeding once more will not duplicate the data
 python -m backend.app.seed
 
 # 7. Run the app (Detailed in Section 6)
