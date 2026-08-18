@@ -100,6 +100,10 @@ pip install -r requirements.txt
 # 4. Set up environment variables
 cp .env.example .env           # Windows: copy .env.example .env
 
+# 4.1 Check if the python version is 3.11 (using python --version)
+# If is 3.11+, run the code below
+pip install --upgrade numpy scikit-learn
+
 # 5. Pull the local LLM model (one-time only, ~2GB download)
 ollama pull llama3.2:3b
 
