@@ -10,7 +10,7 @@ the information in the KB - with sources shown, and an honest answer when there 
 
 ## 1. Project Overview
 
-The system allows the user to ask a question in a chat interface. The abckend retrieves 3 most relevant document (top_k = 3) from a small company KB (employee onboarding, expense claim, laptop replacement, leave application, office wifi, password reset, vpm troubleshooting and wfh policy), constructus a ground prompt, and asks a locally running LLM (via [Ollama] (https://ollama.com)) to answer using only that retreived content. The answer and its source documents are returned as the output to the user.
+The system allows the user to ask a question in a chat interface. The backend retrieves 3 most relevant document (top_k = 3) from a small company KB (employee onboarding, expense claim, laptop replacement, leave application, office wifi, password reset, vpn troubleshooting and wfh policy), constructs a ground prompt, and asks a locally running LLM (via [Ollama] (https://ollama.com)) to answer using only that retrieved content. The answer and its source documents are returned as the output to the user.
 
 KB documents can also be managed directly via REST API (create, list, delete)
 
@@ -57,7 +57,7 @@ graph TD
 ```
 
 **Separation of Concerns**
-- **Frontend** (`frontend/`) - plain HTML,CSS,JS, talks to the backend only via `fetch()` calls to the REST API. No business logic lives in this directory
+- **Frontend** (`frontend/`) - plain HTML, CSS, JS, talks to the backend only via `fetch()` calls to the REST API. No business logic lives in this directory
 - **Backend** (`backend/app/routers/`) - FastAPI route handlers. They validate input via Pydantic and delegate to services.
 - **AI / RAG logic** (`backend/app/services`) - retrieval, prompt reconstruction, and the LLM call are isolated here, independent of HTTP concerns. This is what makes the automated tests run without the LLM.
 - **Data Layer** (`backend/app/database.py`, `models.py`, SQLite file) - persistent, independent of both the API and the AI logic.
@@ -68,7 +68,7 @@ graph TD
 
 | Layer | Choice | Why |
 |---|---|---|
-|Backend framework| **FastAPI** | Async-capable, built-in request validation via Pydantic, automatic interactive API docs (`/docs`), minimal boilerplate. |
+| Backend framework | **FastAPI** | Async-capable, built-in request validation via Pydantic, automatic interactive API docs (`/docs`), minimal boilerplate. |
 | Frontend | **Plain HTML, CSS, JS + Jinja2** | The UI requirement is a single chat page - a full JS framework (React/Vue) would add a second toolchain which provide no real benefit at this scale, while still preserving a clean frontend/backend boundary. |
 | Database | **SQLite** | Zero setup - no server to install or configure. A reviewer can clone the repo and run it directly. Swappable with PostgreSQL/MySQL later with almost no code change, as access goes through SQLAlchemy's ORM. |
 | Retrieval | **TF-IDF + cosine similarity** | Fully offline, no model download, no external dependency required. TF-IDF is explicitly listed as an acceptable approach in the requirements. Trade-offs will be documented under Known Limitation section. |
