@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>AI Knowledge Assistant</h1>
+            <p class="subtitle">Ask a question about company policies</p>
+        </header>
+
+        <main id="chat-window" class="chat-window">
+            <div class="message assistant">
+                <div class="bubble">Hi! Ask me anything about company policies — WFH, password reset, VPN, WiFi, leave, expenses, onboarding, or laptop replacement.
+                </div>
+            </div>
+        </main>
+
+        <div id="error-banner" class="error-banner" hidden></div>
+
+        <form id="chat-form" class="chat-form">
+            <input
+                id="chat-input"
+                type="text"
+                placeholder="Ask a question..."
+                autocomplete="off"
+                required
+            />
+            <button id="send-btn" type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="/static/chat.js"></script>
+</body>
+</html>
