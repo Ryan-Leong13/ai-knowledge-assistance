@@ -88,7 +88,7 @@ graph TD
 ```bash
 # 1. Clone the repo
 git clone https://github.com/Ryan-Leong13/ai-knowledge-assistance.git
-cd ai-knwoledge-assitance
+cd ai-knowledge-assistance
 
 # 2. Create and activate virtual environment
 python -m venv venv
