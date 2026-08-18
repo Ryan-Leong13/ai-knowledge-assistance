@@ -98,7 +98,7 @@ source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # 4. Set up environment variables
-cp .env.examples .env           # Windows: copy .env.example .env
+cp .env.example .env           # Windows: copy .env.example .env
 
 # 5. Pull the local LLM model (one-time only, ~2GB download)
 ollama pull llama3.2:3b
